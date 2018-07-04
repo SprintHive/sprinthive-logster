@@ -5,7 +5,7 @@ let logger, log;
 
 module.exports = function (options) {
   // ensure that we have an options object if one is not supplied
-  options = options || {logstashEnabled: false};
+  options = options || {tcpEnabled: false};
   const defaultConsoleOptions = options.consoleOptions || {level: "silly"};
   const defaultMeta = options.meta || {};
   const defaultLogstashOptions = {
@@ -22,7 +22,7 @@ module.exports = function (options) {
   if (!logger) {
     const transports = [new (winston.transports.Console)(defaultConsoleOptions)];
     // only add the logstash transport if it is enabled.
-    options.logstashEnabled && transports.push(new (winston.transports.Logstash)(logstashOptions));
+    options.tcpEnabled && transports.push(new (winston.transports.Logstash)(logstashOptions));
     logger = new (winston.Logger)({transports});
 
     // keep a reference to the log so if we are called again we can just return it.
