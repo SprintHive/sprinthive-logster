@@ -17,7 +17,7 @@ module.exports = function (options) {
   };
 
   // merge the options object so that the caller can overwrite any of the defaults and pass any extra options on.
-  const logstashOptions = {...(options.logstashOptions || {}), ...defaultLogstashOptions};
+  const logstashOptions = {...defaultLogstashOptions, ...(options.logstashOptions || {})};
   // the logger is a singleton so if we already have one we just return it.
   if (!logger) {
     const transports = [new (winston.transports.Console)(defaultConsoleOptions)];
