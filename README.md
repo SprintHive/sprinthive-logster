@@ -5,8 +5,6 @@ to send log messages to a fluentd deamon over TCP.
 
 This project makes it easy to send extra meta data along with every 
 log message.
-   
-Feel free to use it if it works for you.
 
 ## Basic Usage
 
@@ -27,11 +25,11 @@ By default sprinthive-logster only prints out to the console.
     # this will output
     > debug: Hello world!
 
-To enable the sending of logs to a TCP socket you can do this.
+To enable the sending of logs to a TCP socket and sending extra metadata, try the following:
 
     # create testTcp.js file with the following contents
     const logster = require("sprinthive-logster");
-    const log = logster({ tcpEnabled: true });
+    const log = logster({tcpEnabled: true, meta: {appName: "UsageTest"}});
     
     log.debug("Hello world!");
     
@@ -44,3 +42,8 @@ Then run the testTcp.js
     node testTcp.js   
     
     # The log message Hello World! is sent to the console and the TCP socket.
+    # On the console you will see
+    debug: Hello world! appName=UsageTest
+
+    # In the net cat console you should see
+    {"appName":"UsageTest","level":"debug","message":"Hello world!","label":"winston"}
