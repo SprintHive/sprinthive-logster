@@ -1,6 +1,6 @@
 {
   "name": "sprinthive-logster",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An internal SprintHive package which is a wrapper around winston and winston-logstash to append some default meta data to all log messages.",
   "main": "index.js",
   "scripts": {

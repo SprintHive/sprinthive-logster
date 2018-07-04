@@ -6,7 +6,7 @@ let logger, log;
 module.exports = function (options) {
   // ensure that we have an options object if one is not supplied
   options = options || {tcpEnabled: false};
-  const defaultConsoleOptions = options.consoleOptions || {level: "silly"};
+  const defaultConsoleOptions = options.consoleOptions || {level: "silly", timestamp: true};
   const defaultMeta = options.meta || {};
   const defaultLogstashOptions = {
     port: 5170,

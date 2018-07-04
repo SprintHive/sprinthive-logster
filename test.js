@@ -1,5 +1,5 @@
-const logger1 = require("../src/index");
-const logger2 = require("../src/index");
+const logger1 = require("./index");
+const logger2 = require("./index");
 
 const log1 = logger1({meta: {appName: "Fred"}});
 const log2 = logger2();
